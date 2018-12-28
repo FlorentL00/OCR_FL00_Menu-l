@@ -3,6 +3,7 @@ package com.florentL00.florent;
 import java.util.Scanner;
 
 public class Order {
+
     /**
      * Display all available menus in the restaurant.
      */
@@ -12,7 +13,6 @@ public class Order {
         System.out.println("2 - boeuf");
         System.out.println("3 - végétarien");
         System.out.println("Que souhaitez-vous comme menu?");
-
     }
 
     /**
@@ -105,5 +105,35 @@ public class Order {
                 System.out.println("Vous n'avez pas choisi de boisson parmi les choix proposés");
                 break;
         }
+    }
+
+    /**
+     * Display all available sides depending on all sides enable or not.
+     * All sides = vegetables, frites and rice
+     * No all sides = rice or not
+     * @param allSideEnable enable display for all side or not
+     */
+    public void displayAvailableSide(boolean allSidesEnable){
+        System.out.println("Choix accompagnement");
+        if (allSidesEnable) {
+            System.out.println("1 - légumes frais");
+            System.out.println("1 - frites");
+            System.out.println("1 - riz");
+        } else {
+            System.out.println("1 - riz");
+            System.out.println("1 - pas de riz");
+        }
+        System.out.println("Que souhaitez-vous comme accompagnement ?");
+    }
+
+    /**
+     * Display all available drinks in the restaurant
+     */
+    public void displayAvailableDrink(){
+        System.out.println("Choix boisson");
+        System.out.println("1 - eau plate");
+        System.out.println("2 - eau gazeuse");
+        System.out.println("3 - soda");
+        System.out.println("Que souhaitez-vous comme boisson ?");
     }
 }
