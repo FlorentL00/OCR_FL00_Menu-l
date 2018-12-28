@@ -51,24 +51,36 @@ public class Order {
             switch (nbMenu) {
                 case 1:
                     displayAvailableSide(true);
-                    int nbSide = sc.nextInt();
-                    displaySelectedSide(nbSide, true);
+                    int nbSide;
+                    do {
+                        nbSide = sc.nextInt();
+                        displaySelectedSide(nbSide, true);
+                    } while (nbSide < 1 || nbSide > 3);
                     displayAvailableDrink();
-                    int nbDrink = sc.nextInt();
-                    displaySelectedDrink(nbDrink);
+                    int nbDrink;
+                    do {
+                        nbDrink =sc.nextInt();
+                        displaySelectedDrink(nbDrink);
+                    } while (nbDrink <1 || nbDrink > 3);
                     break;
                 case 2:
                     displayAvailableSide(true);
-                    nbSide = sc.nextInt();
-                    displaySelectedSide(nbSide, true);
+                    do {
+                        nbSide = sc.nextInt();
+                        displaySelectedSide(nbSide, true);
+                    } while (nbSide < 1 || nbSide > 3);
                     break;
                 case 3:
                     displayAvailableSide(false);
-                    nbSide = sc.nextInt();
-                    displaySelectedSide(nbSide, false);
+                    do {
+                        nbSide = sc.nextInt();
+                        displaySelectedSide(nbSide, false);
+                    } while (nbSide < 1 || nbSide > 2);
                     displayAvailableDrink();
-                    nbDrink = sc.nextInt();
-                    displaySelectedDrink(nbDrink);
+                    do {
+                        nbDrink =sc.nextInt();
+                        displaySelectedDrink(nbDrink);
+                    } while (nbDrink <1 || nbDrink > 3);
                     break;
             }
         } while (nbMenu < 1 || nbMenu >3);
