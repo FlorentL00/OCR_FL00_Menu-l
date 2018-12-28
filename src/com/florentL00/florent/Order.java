@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class Order {
 
+    Scanner sc = new Scanner(System.in);
+
     /**
      * Display all available menus in the restaurant.
      */
@@ -43,7 +45,6 @@ public class Order {
     public void runMenu() {
 
         this.displayAvailableMenu();
-        Scanner sc = new Scanner(System.in);
         int nbMenu = sc.nextInt();
         this.displaySelectedMenu(nbMenu);
         switch (nbMenu) {
@@ -68,6 +69,19 @@ public class Order {
                 nbDrink = sc.nextInt();
                 displaySelectedDrink(nbDrink);
                 break;
+        }
+    }
+
+    /**
+     * Run asking process for several menus
+     */
+    public void runMenus(){
+        System.out.println("Combien souhaitez vous commander de menu ?");
+        int menuQuantity = sc.nextInt();
+        int counter = 0;
+        while (counter < menuQuantity){
+            this.runMenu();
+            counter = counter + 1;
         }
     }
 
@@ -140,11 +154,11 @@ public class Order {
         System.out.println("Choix accompagnement");
         if (allSidesEnable) {
             System.out.println("1 - légumes frais");
-            System.out.println("1 - frites");
-            System.out.println("1 - riz");
+            System.out.println("2 - frites");
+            System.out.println("3 - riz");
         } else {
             System.out.println("1 - riz");
-            System.out.println("1 - pas de riz");
+            System.out.println("2 - pas de riz");
         }
         System.out.println("Que souhaitez-vous comme accompagnement ?");
     }
