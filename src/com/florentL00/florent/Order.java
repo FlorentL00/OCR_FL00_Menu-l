@@ -1,5 +1,7 @@
 package com.florentL00.florent;
 
+import java.util.Scanner;
+
 public class Order {
     /**
      * Display all available menus in the restaurant.
@@ -31,5 +33,17 @@ public class Order {
             System.out.println("Vous n'avez pas choisi de menu parmi les choix proposés");
             break;
         }
+    }
+
+    /**
+     * Run asking process for a menu.
+     */
+
+    public void runMenu(){
+
+        this.displayAvailableMenu();
+        Scanner sc = new Scanner(System.in);
+        int nb = sc.nextInt();
+        this.displaySelectedMenu(nb);
     }
 }
