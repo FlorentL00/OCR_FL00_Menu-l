@@ -44,21 +44,24 @@ public class Order {
     /**
      * Run asking process for a menu.
      */
-    public void runMenu() {
+    public String runMenu() {
         int nbMenu = askMenu();
+        int nbSide = -1;
+        int nbDrink = -1;
         switch (nbMenu) {
             case 1:
-                askSide(true);
-                askDrink();
+                nbSide = askSide(true);
+                nbDrink = askDrink();
                 break;
             case 2:
-                askSide(true);
+                nbSide = askSide(true);
                 break;
             case 3:
-                askSide(false);
-                askDrink();
+                nbSide = askSide(false);
+                nbDrink = askDrink();
                 break;
         }
+        return nbMenu + "," + nbSide + "," + nbDrink + "%n";
     }
 
     /**
