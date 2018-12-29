@@ -1,7 +1,14 @@
 package com.florentL00.florent;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import static java.nio.file.StandardOpenOption.APPEND;
+
 
 public class Order {
 
@@ -67,7 +74,8 @@ public class Order {
     /**
      * Run asking process for several menus
      */
-    public void runMenus(){
+    public void runMenus() {
+        Path orderPath = Paths.get("order.csv");
         System.out.println("Combien souhaitez vous commander de menu ?");
         orderSummary = "Résumé de votre commande :%n";
         boolean responseIsGood;
@@ -84,7 +92,13 @@ public class Order {
         } while (!responseIsGood);
         for (int i = 0; i < menuQuantity; i++){
             orderSummary += "Menu " + (i + 1) + ":%n";
-            this.runMenu();
+            String orderLine = runMenu();
+            try {
+                Files.write(orderPath, String.format(orderLine).getBytes(), APPEND);
+            } catch (IOException e) {
+                System.out.println("Ooops une erreur est survenue. Merci de réessayer plus tard");
+                return;
+            }
         }
         System.out.println("");
         System.out.println(String.format(orderSummary));
