@@ -225,21 +225,21 @@ public class Order {
      * Display a question about sides in the standard input, get response and display it.
      * @param allSidesEnabled all sides enabled or not.
      */
-    public void askSide(boolean allSidesEnabled) {
+    public int askSide(boolean allSidesEnabled) {
         if (allSidesEnabled) {
             String[] sides = {"légumes frais", "frites", "riz"};
-            askSomething("accompagnement", sides);
+            return askSomething("accompagnement", sides);
         } else {
             String[] sides = {"riz", "pas de riz"};
-            askSomething("accompagnement", sides);
+            return askSomething("accompagnement", sides);
         }
     }
 
     /**
      * Display a question about Drinks in the standard input, get response and display it.
      */
-    public void askDrink() {
+    public int askDrink() {
         String[] drinks = {"eau plate", "eau gazeuse", "soda"};
-        askSomething("boisson", drinks);
+        return askSomething("boisson", drinks);
     }
 }
