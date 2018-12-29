@@ -218,4 +218,34 @@ public class Order {
             }
         } while (responseIsGood == false);
     }
+
+    /**
+     * Display a question about menus in the standard input, get response and display it.
+     */
+    public void askMenu() {
+        String[] menus = {"poulet", "boeuf", "végétarien"};
+        askSomething("menu", menus);
+    }
+
+    /**
+     * Display a question about sides in the standard input, get response and display it.
+     * @param allSidesEnabled all sides enabled or not.
+     */
+    public void askSide(boolean allSidesEnabled) {
+        if (allSidesEnabled) {
+            String[] sides = {"légumes frais", "frites", "riz"};
+            askSomething("accompagnement", sides);
+        } else {
+            String[] sides = {"riz", "pas de riz"};
+            askSomething("accompagnement", sides);
+        }
+    }
+
+    /**
+     * Display a question about Drinks in the standard input, get response and display it.
+     */
+    public void askDrink() {
+        String[] drinks = {"eau plate", "eau gazeuse", "soda"};
+        askSomething("boisson", drinks);
+    }
 }
