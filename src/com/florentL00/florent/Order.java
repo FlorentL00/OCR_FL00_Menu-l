@@ -168,8 +168,9 @@ public class Order {
      * Display a question about category in the standard input, get response and display it.
      * @param category The category of the question.
      * @param responses Available response.
+     * @return category number selected.
      */
-    public void askSomething(String category, String[] responses){
+    public int askSomething(String category, String[] responses){
         System.out.println("Choix " + category);
         for (int i = 1; i <= responses.length; i++) {
             System.out.println(i + " - " + responses[i - 1]);
@@ -195,14 +196,16 @@ public class Order {
                 }
             }
         } while (responseIsGood == false);
+        return nbResponse;
     }
 
     /**
      * Display a question about menus in the standard input, get response and display it.
+     * @return menu number selected
      */
-    public void askMenu() {
+    public int askMenu() {
         String[] menus = {"poulet", "boeuf", "végétarien"};
-        askSomething("menu", menus);
+        return askSomething("menu", menus);
     }
 
     /**
