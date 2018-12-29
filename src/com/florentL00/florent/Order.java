@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Order {
 
     Scanner sc = new Scanner(System.in);
+    String orderSummary = "";
 
     /**
      * Display all available menus in the restaurant.
@@ -43,25 +44,20 @@ public class Order {
      * Run asking process for a menu.
      */
     public void runMenu() {
-        this.displayAvailableMenu();
-        int nbMenu;
-        do {
-            nbMenu = sc.nextInt();
-            this.displaySelectedMenu(nbMenu);
-            switch (nbMenu) {
-                case 1:
-                    askSide(true);
-                    askDrink();
-                    break;
-                case 2:
-                    askSide(true);
-                    break;
-                case 3:
-                    askSide(false);
-                    askDrink();
-                    break;
-            }
-        } while (nbMenu < 1 || nbMenu >3);
+        int nbMenu = askMenu();
+        switch (nbMenu) {
+            case 1:
+                askSide(true);
+                askDrink();
+                break;
+            case 2:
+                askSide(true);
+                break;
+            case 3:
+                askSide(false);
+                askDrink();
+                break;
+        }
     }
 
     /**
@@ -69,10 +65,14 @@ public class Order {
      */
     public void runMenus(){
         System.out.println("Combien souhaitez vous commander de menu ?");
+        orderSummary = "Résumé de votre commande :%n";
         int menuQuantity = sc.nextInt();
         for (int i = 0; i < menuQuantity; i++){
+            orderSummary += "Menu " + (i + 1) + ":%n";
             this.runMenu();
         }
+        System.out.println("");
+        System.out.println(String.format(orderSummary));
     }
 
     /**
@@ -186,7 +186,9 @@ public class Order {
                 responseIsGood = false;
             }
             if (responseIsGood == true) {
-                System.out.println("Vous avez choisi comme " + category + " : " + responses[nbResponse -1]);
+                String choice = "Vous avez choisi comme " + category + " : " + responses[nbResponse -1];
+                System.out.println(choice);
+                orderSummary += choice + "%n";
             } else {
                 boolean isVowel = "aeiouy".contains(Character.toString(category.charAt(0)));
                 if (isVowel == true) {
