@@ -50,37 +50,15 @@ public class Order {
             this.displaySelectedMenu(nbMenu);
             switch (nbMenu) {
                 case 1:
-                    displayAvailableSide(true);
-                    int nbSide;
-                    do {
-                        nbSide = sc.nextInt();
-                        displaySelectedSide(nbSide, true);
-                    } while (nbSide < 1 || nbSide > 3);
-                    displayAvailableDrink();
-                    int nbDrink;
-                    do {
-                        nbDrink =sc.nextInt();
-                        displaySelectedDrink(nbDrink);
-                    } while (nbDrink <1 || nbDrink > 3);
+                    askSide(true);
+                    askDrink();
                     break;
                 case 2:
-                    displayAvailableSide(true);
-                    do {
-                        nbSide = sc.nextInt();
-                        displaySelectedSide(nbSide, true);
-                    } while (nbSide < 1 || nbSide > 3);
+                    askSide(true);
                     break;
                 case 3:
-                    displayAvailableSide(false);
-                    do {
-                        nbSide = sc.nextInt();
-                        displaySelectedSide(nbSide, false);
-                    } while (nbSide < 1 || nbSide > 2);
-                    displayAvailableDrink();
-                    do {
-                        nbDrink =sc.nextInt();
-                        displaySelectedDrink(nbDrink);
-                    } while (nbDrink <1 || nbDrink > 3);
+                    askSide(false);
+                    askDrink();
                     break;
             }
         } while (nbMenu < 1 || nbMenu >3);
@@ -211,7 +189,7 @@ public class Order {
             } else {
                 boolean isVowel = "aeiouy".contains(Character.toString(category.charAt(0)));
                 if (isVowel == true) {
-                    System.out.println("Vous n'avez pas choisi d' " + category + " parmi les choix proposés");
+                    System.out.println("Vous n'avez pas choisi d'" + category + " parmi les choix proposés");
                 }  else {
                     System.out.println("Vous n'avez pas choisi de " + category + " parmi les choix proposés");
                 }
