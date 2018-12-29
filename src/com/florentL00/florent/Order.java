@@ -209,7 +209,12 @@ public class Order {
             if (responseIsGood == true) {
                 System.out.println("Vous avez choisi comme " + category + " : " + responses[nbResponse -1]);
             } else {
-                System.out.println("Vous n'avez pas choisi de " + category + " parmi les choix proposés");
+                boolean isVowel = "aeiouy".contains(Character.toString(category.charAt(0)));
+                if (isVowel == true) {
+                    System.out.println("Vous n'avez pas choisi d' " + category + " parmi les choix proposés");
+                }  else {
+                    System.out.println("Vous n'avez pas choisi de " + category + " parmi les choix proposés");
+                }
             }
         } while (responseIsGood == false);
     }
